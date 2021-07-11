@@ -1,0 +1,21 @@
+﻿@model Product
+
+<div class="col col-12 col-sm-6 col-md-3 mb-4">
+    <div class="card h-100 border-light">
+        @if (Model.Photo != null) {
+        <img src="/img/@Model.Photo" class="card-img-top" alt="@Model.Name">
+        }
+        <div class="card-body text-center">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">@Model.Price $</p>
+            <div class="btn-group-vertical" role="group">
+                <a asp-area="" asp-controller="Products" asp-action="Product" asp-route-id="@Model.Id" class="btn btn-primary">View details</a>
+                <a asp-area="" asp-controller="Products" asp-action="Product" asp-route-id="@Model.Id" class="btn btn-success">Add to cart</a>
+                @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Administrator"))
+                {
+                <a asp-area="" asp-controller="Products" asp-action="Product" asp-route-id="@Model.Id" class="btn btn-dark">Edit product</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
