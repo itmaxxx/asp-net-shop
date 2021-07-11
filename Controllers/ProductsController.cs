@@ -18,36 +18,18 @@ namespace asp_net_shop.Controllers
             _ctx = ctx;
         }
 
-        //[Authorize]
-        public IActionResult Index()
-        {
-            _ctx.Categories.Load();
-
-            return View(new CategoryModel() { Name = "All products", Products = _ctx.Products.ToList() });
-        }
-
-        // @TODO: replace to category controller and view ???
-        // @TODO: check if category with this id doesn't exist
-        public IActionResult Category(int id)
-        {
-            var category = _ctx.Categories.First(cat => cat.Id == id);
-
-			var products = _ctx.Products.Where(prod => prod.CategoryId == id).ToList();
-
-            return View("Index", new CategoryModel() { Name = category.Name, Products = products });
-        }
-
-        // @TODO: rewrite with normal view
-        public IActionResult Product(int id)
+        public IActionResult Index(int id)
         {
             var product = _ctx.Products.FirstOrDefault(prod => prod.Id == id);
 
             if (product != null)
             {
-                return PartialView("_Product", product);
+                return View(product);
             }
-
-            else return PartialView("Failed to load product");
+            else
+			{
+                return View();
+			}
         }
     }
 }

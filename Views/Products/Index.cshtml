@@ -1,14 +1,30 @@
-﻿@model CategoryModel
+﻿@model Product
 
 @{
     ViewData["Title"] = Model.Name;
 }
 
-<h1 class="mb-4">@Model.Name</h1>
-
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    @foreach (var product in Model.Products)
-    {
-        await Html.RenderPartialAsync("_Product", product);
-    }
-</div> 
+<div class="card border-light">
+    <div class="row g-0">
+        @if (Model.Photo != null) {
+        <div class="col-md-8">
+            <img src="/img/@Model.Photo" class="card-img-top" alt="@Model.Name">
+        </div>
+        }
+        <div class="col-md-4">
+            <div class="card-body">
+                <h1 class="card-title">@Model.Name</h1>
+                <h5>@Model.Price$</h5>
+                <p class="card-text">@Model.Description</p>
+                <div class="btn-group-vertical" role="group">
+                    <a asp-area="" asp-controller="Products" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-primary">View details</a>
+                    <a asp-area="" asp-controller="Products" asp-action="AddToCart" asp-route-id="@Model.Id" class="btn btn-success">Add to cart</a>
+                    @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Administrator"))
+                    {
+                    <a asp-area="" asp-controller="Products" asp-action="EditProduct" asp-route-id="@Model.Id" class="btn btn-dark">Edit product</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
