@@ -12,4 +12,15 @@ namespace asp_net_shop.Models
 
         public List<Product> Products { get; set; } = new List<Product>();
     }
+
+    public class CategoryModel
+    {
+        public string Name { get; set; }
+        public List<Product> Products { get; set; }
+
+        public CategoryModel()
+        {
+            Products = new List<Product>();
+        }
+    }
 }

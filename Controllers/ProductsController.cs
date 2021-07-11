@@ -23,13 +23,24 @@ namespace asp_net_shop.Controllers
         {
             _ctx.Categories.Load();
 
-            return View(_ctx.Products.ToList());
+            return View(new CategoryModel() { Name = "All products", Products = _ctx.Products.ToList() });
+        }
+
+        // @TODO: check if category with this id doesn't exist
+        // @TODO: replace to category controller and view ???
+        public IActionResult Category(int id)
+        {
+            var category = _ctx.Categories.First(cat => cat.Id == id);
+
+			var products = _ctx.Products.Where(prod => prod.CategoryId == id).ToList();
+
+            return View("Index", new CategoryModel() { Name = category.Name, Products = products });
         }
 
         // @TODO: rewrite with normal view
-        public async Task<IActionResult> Product(int Id)
+        public IActionResult Product(int id)
         {
-            var product = await _ctx.Products.FirstOrDefaultAsync(prod => prod.Id == Id);
+            var product = _ctx.Products.FirstOrDefault(prod => prod.Id == id);
 
             if (product != null)
             {
