@@ -26,8 +26,8 @@ namespace asp_net_shop.Controllers
             return View(new CategoryModel() { Name = "All products", Products = _ctx.Products.ToList() });
         }
 
-        // @TODO: check if category with this id doesn't exist
         // @TODO: replace to category controller and view ???
+        // @TODO: check if category with this id doesn't exist
         public IActionResult Category(int id)
         {
             var category = _ctx.Categories.First(cat => cat.Id == id);

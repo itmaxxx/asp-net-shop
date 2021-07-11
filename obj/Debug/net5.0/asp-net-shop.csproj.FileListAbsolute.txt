@@ -75,3 +75,5 @@ C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Acc
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Products\_Product.cshtml.g.cs
+C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Categories\Index.cshtml.g.cs
+C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Categories\_Category.cshtml.g.cs
