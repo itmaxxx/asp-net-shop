@@ -9,18 +9,8 @@ namespace asp_net_shop.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Photo { get; set; }
 
         public List<Product> Products { get; set; } = new List<Product>();
-    }
-
-    public class CategoryModel
-    {
-        public string Name { get; set; }
-        public List<Product> Products { get; set; }
-
-        public CategoryModel()
-        {
-            Products = new List<Product>();
-        }
     }
 }

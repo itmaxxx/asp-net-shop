@@ -26,8 +26,15 @@ using asp_net_shop.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\dmitr\Desktop\My projects\asp-net-shop\Views\_ViewImports.cshtml"
+using asp_net_shop.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"99b9fa503850928fcf3dcdad7cf9a81987d56d5a", @"/Views/Categories/_Product.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8001aa5f98e7555caa28a8f3dd0451d500ababb2", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e7e5101f7e4b62de6254aa92af9523044f584d12", @"/Views/_ViewImports.cshtml")]
     public class Views_Categories__Product : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Product>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -116,7 +123,7 @@ WriteAttributeValue("", 210, Model.Name, 210, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral(" $</p>\r\n            <div class=\"btn-group-vertical\" role=\"group\">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99b9fa503850928fcf3dcdad7cf9a81987d56d5a7720", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99b9fa503850928fcf3dcdad7cf9a81987d56d5a7906", async() => {
                 WriteLiteral("View details");
             }
             );
@@ -152,7 +159,7 @@ WriteAttributeValue("", 210, Model.Name, 210, 11, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99b9fa503850928fcf3dcdad7cf9a81987d56d5a10421", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99b9fa503850928fcf3dcdad7cf9a81987d56d5a10607", async() => {
                 WriteLiteral("Add to cart");
             }
             );
@@ -197,7 +204,7 @@ WriteAttributeValue("", 210, Model.Name, 210, 11, false);
 #line hidden
 #nullable disable
             WriteLiteral("                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99b9fa503850928fcf3dcdad7cf9a81987d56d5a13441", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "99b9fa503850928fcf3dcdad7cf9a81987d56d5a13627", async() => {
                 WriteLiteral("Edit product");
             }
             );

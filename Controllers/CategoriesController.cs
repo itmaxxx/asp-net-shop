@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using asp_net_shop.Models;
+using asp_net_shop.ViewModels;
 
 namespace asp_net_shop.Controllers
 {
@@ -21,7 +22,6 @@ namespace asp_net_shop.Controllers
 			return View(_ctx.Categories.ToList());
 		}
 
-		// @TODO: replace to category controller and view ???
 		// @TODO: check if category with this id doesn't exist
 		public IActionResult Category(int id)
 		{
@@ -29,7 +29,7 @@ namespace asp_net_shop.Controllers
 
 			var products = _ctx.Products.Where(prod => prod.CategoryId == id).ToList();
 
-			return View("Category", new CategoryModel() { Name = category.Name, Products = products });
+			return View("Category", new CategoryViewModel() { Name = category.Name, Products = products });
 		}
 	}
 }
