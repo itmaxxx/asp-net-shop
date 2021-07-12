@@ -64,10 +64,16 @@ namespace asp_net_shop.Models
                 new Product { Id = 13, Name = "iPad Air 10.9\" Wi-Fi + Cellular 64GB Sky Blue", CategoryId = 4, Photo = "ipad_air_10_9_blue.jpg", Price = 1199 },
             };
 
+            Cart[] carts = new Cart[]
+            {
+                new Cart { Id = 1, ProductId = 2, Quantity = 1, UserId = 1 }
+            };
+
             modelBuilder.Entity<Role>().HasData(roles);
             modelBuilder.Entity<User>().HasData(users);
             modelBuilder.Entity<Category>().HasData(categories);
             modelBuilder.Entity<Product>().HasData(products);
+            modelBuilder.Entity<Cart>().HasData(carts);
 
             base.OnModelCreating(modelBuilder);
         }

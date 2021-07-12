@@ -20,7 +20,26 @@ namespace asp_net_shop.Controllers
 		[Authorize]
 		public IActionResult Index()
 		{
-			return View();
+			var carts = _ctx.Carts.Where(cart => cart.UserId == 1);
+
+			return View("Index");
+		}
+
+		[Authorize]
+		[HttpPost]
+		public IActionResult Add(int productId)
+		{
+			var user = _ctx.Carts.Where(cart => cart.UserId == 1);
+
+
+			if (user != null)
+			{
+				return View("Index");
+			}
+			else
+			{
+				return View("Index");
+			}
 		}
 	}
 }

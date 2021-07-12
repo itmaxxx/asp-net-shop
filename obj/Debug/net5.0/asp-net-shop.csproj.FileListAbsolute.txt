@@ -79,3 +79,4 @@ C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Cat
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Admin\Index.cshtml.g.cs
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Cart\Index.cshtml.g.cs
+C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Cart\_Product.cshtml.g.cs
