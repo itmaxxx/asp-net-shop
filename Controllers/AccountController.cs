@@ -111,7 +111,6 @@ namespace asp_net_shop.Controllers
             return View(model);
         }
 
-
         private async Task Authenticate(User user)
         {
             var claims = new List<Claim>
@@ -131,5 +130,10 @@ namespace asp_net_shop.Controllers
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
         }
+
+        public IActionResult Profile()
+		{
+            return View();
+		}
     }
 }

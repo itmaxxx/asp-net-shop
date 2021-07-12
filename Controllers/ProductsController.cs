@@ -25,6 +25,8 @@ namespace asp_net_shop.Controllers
 
             if (product != null)
             {
+                _ctx.Categories.Load();
+
                 return View(product);
             }
                 

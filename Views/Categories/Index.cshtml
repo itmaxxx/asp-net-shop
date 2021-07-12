@@ -4,6 +4,13 @@
     ViewData["Title"] = "Categories";
 }
 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+
 <h1 class="mb-4">@ViewData["Title"]</h1>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
