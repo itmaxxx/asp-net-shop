@@ -18,6 +18,7 @@ namespace asp_net_shop.Controllers
             _ctx = ctx;
         }
 
+        // @TODO: show error if item with this is doesn't exist
         public IActionResult Index(int id)
         {
             var product = _ctx.Products.FirstOrDefault(prod => prod.Id == id);
@@ -26,10 +27,8 @@ namespace asp_net_shop.Controllers
             {
                 return View(product);
             }
-            else
-			{
-                return View();
-			}
+                
+            return View();
         }
     }
 }

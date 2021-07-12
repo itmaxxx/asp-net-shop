@@ -13,21 +13,15 @@ namespace asp_net_shop.Controllers
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
-		private ApplicationContext _appContext;
+		private ApplicationContext _ctx;
 
-		public HomeController(ILogger<HomeController> logger, ApplicationContext appContext)
+		public HomeController(ILogger<HomeController> logger, ApplicationContext ctx)
 		{
 			_logger = logger;
-			_appContext = appContext;
+			_ctx = ctx;
 		}
 
 		public IActionResult Index()
-		{
-			return View();
-		}
-
-		[Authorize(Roles = "Administrator")]
-		public IActionResult Privacy()
 		{
 			return View();
 		}

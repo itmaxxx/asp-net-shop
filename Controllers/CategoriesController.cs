@@ -22,7 +22,8 @@ namespace asp_net_shop.Controllers
 			return View(_ctx.Categories.ToList());
 		}
 
-		// @TODO: check if category with this id doesn't exist
+		// @TODO: show error if category with this id doesn't exist
+		// @TODO: show error if not items in categgory
 		public IActionResult Category(int id)
 		{
 			var category = _ctx.Categories.First(cat => cat.Id == id);
