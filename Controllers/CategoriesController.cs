@@ -32,5 +32,14 @@ namespace asp_net_shop.Controllers
 
 			return View("Category", new CategoryViewModel() { Name = category.Name, Products = products });
 		}
+
+		[HttpPost]
+		public IActionResult Search(string query)
+		{
+			var lowerQuery = query.ToLower();
+			var products = _ctx.Products.Where(prod => prod.Name.ToLower().Contains(lowerQuery)).ToList();
+
+			return View("Category", new CategoryViewModel() { Name = $"Search results for \"{query}\"", Products = products });
+		}
 	}
 }
