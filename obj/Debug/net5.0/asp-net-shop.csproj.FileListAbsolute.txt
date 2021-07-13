@@ -82,3 +82,5 @@ C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Car
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Cart\_Product.cshtml.g.cs
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Admin\AddProduct.cshtml.g.cs
 C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Admin\AddCategory.cshtml.g.cs
+C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Admin\EditProduct.cshtml.g.cs
+C:\Users\dmitr\Desktop\My projects\asp-net-shop\obj\Debug\net5.0\Razor\Views\Admin\EditCategory.cshtml.g.cs

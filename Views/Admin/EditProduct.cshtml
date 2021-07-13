@@ -1,0 +1,53 @@
+﻿@model Product
+
+<div class="card border-light">
+    <div class="row g-0">
+        <div class="col-12">
+            <div class="card-body">
+                <h1 class="card-title h2">@ViewData["Title"]</h1>
+                <form method="post" asp-controller="Admin" asp-action="EditProduct">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="Name" asp-for="Name" value="@Model.Name">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label">Description</label>
+                        <textarea type="text" class="form-control" name="Description" asp-for="Description" rows="5" value="@Model.Description"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Photo" class="form-label">Photo</label>
+                        <input type="text" class="form-control" name="Photo" asp-for="Photo" value="@Model.Photo">
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Price" class="form-label">Price</label>
+                        <input type="number" class="form-control" name="Price" asp-for="Price" value="@Model.Price">
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="CategoryId" class="form-label">Category</label>
+                        <select asp-for="CategoryId" class="form-select" aria-label="Category">
+                            @* TODO: current product category should have selected tag *@
+                            @foreach (var category in (ViewData["Categories"] as List<Category>))
+                            {
+                                @if (category.Id == Model.CategoryId)
+                                {
+                                    <option value="@category.Id" selected>@category.Name</option>
+                                }
+                                else
+                                {
+                                    <option value="@category.Id">@category.Name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

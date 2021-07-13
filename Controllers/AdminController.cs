@@ -87,5 +87,67 @@ namespace asp_net_shop.Controllers
 
 			return View();
 		}
+
+		[Authorize(Roles = "Administrator")]
+		public IActionResult EditProduct(int id)
+		{
+			var product = _ctx.Products.FirstOrDefault(prod => prod.Id == id);
+
+			ViewData["Categories"] = _ctx.Categories.ToList();
+
+			return View(product);
+		}
+
+		[Authorize(Roles = "Administrator")]
+		[HttpPost]
+		public IActionResult EditProduct(Product product)
+		{
+			_ctx.Products.Update(product);
+			_ctx.SaveChanges();
+
+			return RedirectToAction("Index", "Products", new { id = product.Id });
+		}
+
+		[Authorize(Roles = "Administrator")]
+		public IActionResult EditCategory(int id)
+		{
+			var category = _ctx.Categories.FirstOrDefault(cat => cat.Id == id);
+
+			return View(category);
+		}
+
+		[Authorize(Roles = "Administrator")]
+		[HttpPost]
+		public IActionResult EditCategory(Category category)
+		{
+			_ctx.Categories.Update(category);
+			_ctx.SaveChanges();
+
+			return RedirectToAction("Category", "Categories", new { id = category.Id });
+		}
+
+		[Authorize(Roles = "Administrator")]
+		[HttpPost]
+		public IActionResult DeleteProduct(int productId)
+		{
+			var product = _ctx.Products.FirstOrDefault(prod => prod.Id == productId);
+
+			_ctx.Products.Remove(product);
+			_ctx.SaveChanges();
+
+			return RedirectToAction("Category", "Categories", new { id = product.CategoryId });
+		}
+
+		[Authorize(Roles = "Administrator")]
+		[HttpPost]
+		public IActionResult DeleteCategory(int categoryId)
+		{
+			var category = _ctx.Categories.FirstOrDefault(cat => cat.Id == categoryId);
+
+			_ctx.Categories.Remove(category);
+			_ctx.SaveChanges();
+
+			return RedirectToAction("Index", "Categories");
+		}
 	}
 }
