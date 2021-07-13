@@ -48,8 +48,15 @@ namespace asp_net_shop.Controllers
 			if (cartItem != null)
 			{
 				cartItem.Quantity += quantity;
-
-				_ctx.Carts.Update(cartItem);
+				
+				if (cartItem.Quantity <= 0)
+				{
+					_ctx.Carts.Remove(cartItem);
+				}
+				else
+				{
+					_ctx.Carts.Update(cartItem);
+				}
 			}
 			else
 			{
