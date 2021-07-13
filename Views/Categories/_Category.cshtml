@@ -14,7 +14,7 @@
                 <a asp-area="" asp-controller="Categories" asp-action="Category" asp-route-id="@Model.Id" class="btn btn-primary">View products</a>
                 @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Administrator"))
                 {
-                    <a asp-area="" asp-controller="Categories" asp-action="EditCategory" asp-route-id="@Model.Id" class="btn btn-dark">Edit category</a>
+                    <a asp-area="" asp-controller="Admin" asp-action="EditCategory" asp-route-id="@Model.Id" class="btn btn-dark">Edit category</a>
                 }
             </div>
         </div>

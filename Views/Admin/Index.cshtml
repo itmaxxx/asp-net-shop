@@ -1,1 +1,36 @@
 ﻿<p>Admin panel</p>
+
+<div class="row">
+    <div class="col-sm-6 col-md-3 text-center my-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Add product</h5>
+                <a asp-area="" asp-controller="Admin" asp-action="AddProduct" class="btn btn-primary">Add product</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3 text-center my-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Edit products</h5>
+                <a asp-area="" asp-controller="Categories" asp-action="Category" asp-route-id="0" class="btn btn-primary">Go to products</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3 text-center my-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Add category</h5>
+                <a asp-area="" asp-controller="Admin" asp-action="AddCategory" class="btn btn-primary">Add category</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3 text-center my-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Edit categories</h5>
+                <a asp-area="" asp-controller="Categories" asp-action="Index" class="btn btn-primary">Go to categories</a>
+            </div>
+        </div>
+    </div>
+</div>

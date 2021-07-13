@@ -20,7 +20,7 @@
                     </button>
                     @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Administrator"))
                     {
-                        <a asp-area="" asp-controller="Products" asp-action="EditProduct" asp-route-id="@Model.Id" class="btn btn-dark btn-lg"><i class="bi bi-pencil"></i> Edit product</a>
+                        <a asp-area="" asp-controller="Admin" asp-action="EditProduct" asp-route-id="@Model.Id" class="btn btn-dark btn-lg"><i class="bi bi-pencil"></i> Edit product</a>
                     }
                 </div>
             </form>
