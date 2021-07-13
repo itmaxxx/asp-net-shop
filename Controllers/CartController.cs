@@ -18,39 +18,47 @@ namespace asp_net_shop.Controllers
 			_ctx = ctx;
 		}
 
+		private List<CartProductViewModel> GetUserCart()
+		{
+			var user = _ctx.Users.First(user => user.Email == User.Identity.Name);
+			var cartItems = _ctx.Carts.Where(cart => cart.UserId == user.Id);
+			List<CartProductViewModel> products = new List<CartProductViewModel>();
+
+			foreach (var item in cartItems)
+			{
+				products.Add(new CartProductViewModel { Product = _ctx.Products.First(prod => prod.Id == item.ProductId), Quantity = item.Quantity });
+			}
+
+			return products;
+		}
+
 		[Authorize]
 		public IActionResult Index()
 		{
-			var cartItems = _ctx.Carts.Where(cart => cart.UserId == 1);
-			List<CartProductViewModel> products = new List<CartProductViewModel>();
-
-			foreach (var item in cartItems)
-			{
-				products.Add(new CartProductViewModel { Product = _ctx.Products.First(prod => prod.Id == item.ProductId), Quantity = item.Quantity });
-			}
-
-			return View("Index", products);
+			return View("Index", GetUserCart());
 		}
 
-		// @TODO: if item exist in cart just increase it's quantity
 		[Authorize]
 		[HttpPost]
-		public IActionResult Add(int productId)
+		public IActionResult Add(int productId, int quantity = 1)
 		{
 			var user = _ctx.Users.First(user => user.Email == User.Identity.Name);
+			var cartItem = _ctx.Carts.FirstOrDefault(item => item.UserId == user.Id && item.ProductId == productId);
 
-			_ctx.Carts.Add(new Cart { ProductId = productId, Quantity = 1, UserId = user.Id });
-			_ctx.SaveChanges();
-
-			var cartItems = _ctx.Carts.Where(cart => cart.UserId == 1);
-			List<CartProductViewModel> products = new List<CartProductViewModel>();
-
-			foreach (var item in cartItems)
+			if (cartItem != null)
 			{
-				products.Add(new CartProductViewModel { Product = _ctx.Products.First(prod => prod.Id == item.ProductId), Quantity = item.Quantity });
+				cartItem.Quantity += quantity;
+
+				_ctx.Carts.Update(cartItem);
+			}
+			else
+			{
+				_ctx.Carts.Add(new Cart { ProductId = productId, Quantity = quantity, UserId = user.Id });
 			}
 
-			return View("Index", products);
+			_ctx.SaveChanges();
+
+			return View("Index", GetUserCart());
 		}
 
 		[Authorize]
@@ -66,15 +74,7 @@ namespace asp_net_shop.Controllers
 				_ctx.SaveChanges();
 			}
 
-			var cartItems = _ctx.Carts.Where(cart => cart.UserId == 1);
-			List<CartProductViewModel> products = new List<CartProductViewModel>();
-
-			foreach (var item in cartItems)
-			{
-				products.Add(new CartProductViewModel { Product = _ctx.Products.First(prod => prod.Id == item.ProductId), Quantity = item.Quantity });
-			}
-
-			return View("Index", products);
+			return View("Index", GetUserCart());
 		}
 	}
 }
