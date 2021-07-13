@@ -133,7 +133,11 @@ namespace asp_net_shop.Controllers
 
         public IActionResult Profile()
 		{
-            return View();
+			var user = _appContext.Users.First(user => user.Email == User.Identity.Name);
+
+            _appContext.Roles.Load();
+
+            return View(user);
 		}
     }
 }
