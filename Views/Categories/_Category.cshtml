@@ -11,7 +11,7 @@
         <div class="card-body text-center">
             <h5 class="card-title">@Model.Name</h5>
             <div class="btn-group-vertical" role="group">
-                <a asp-area="" asp-controller="Categories" asp-action="Category" asp-route-id="@Model.Id" class="btn btn-primary btn-lg">View products</a>
+                <a asp-area="" asp-controller="Categories" asp-action="Category" asp-route-id="@Model.Id" class="btn btn-primary">View products</a>
             </div>
 
             @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Administrator"))
@@ -19,8 +19,8 @@
                 <form method="post" asp-controller="Admin" asp-action="DeleteCategory">
                     <div class="btn-group-vertical mt-2">
                         <input type="hidden" name="categoryId" value="@Model.Id" />
-                        <a asp-area="" asp-controller="Admin" asp-action="EditCategory" asp-route-id="@Model.Id" class="btn btn-warning btn-lg"><i class="bi bi-pencil"></i> Edit category</a>
-                        <button type="submit" class="btn btn-danger btn-lg">
+                        <a asp-area="" asp-controller="Admin" asp-action="EditCategory" asp-route-id="@Model.Id" class="btn btn-warning"><i class="bi bi-pencil"></i> Edit category</a>
+                        <button type="submit" class="btn btn-danger">
                             <i class="bi bi-trash"></i> Delete
                         </button>
                     </div>

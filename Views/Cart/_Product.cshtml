@@ -10,16 +10,16 @@
             <h5 class="card-title">@Model.Product.Name</h5>
             <h5 class="card-text">$@Model.Product.Price x @Model.Quantity</h5>
             <div class="btn-group-vertical mt-3 col-12" role="group">
-                <a asp-area="" asp-controller="Products" asp-action="Index" asp-route-id="@Model.Product.Id" class="btn btn-primary btn-lg"><i class="bi bi-eye"></i> View details</a>
+                <a asp-area="" asp-controller="Products" asp-action="Index" asp-route-id="@Model.Product.Id" class="btn btn-primary"><i class="bi bi-eye"></i> View details</a>
                 @if (Context.User.Identity.IsAuthenticated && Context.User.IsInRole("Administrator"))
                 {
-                    <a asp-area="" asp-controller="Admin" asp-action="EditProduct" asp-route-id="@Model.Product.Id" class="btn btn-dark btn-lg"><i class="bi bi-pencil"></i> Edit product</a>
+                    <a asp-area="" asp-controller="Admin" asp-action="EditProduct" asp-route-id="@Model.Product.Id" class="btn btn-dark"><i class="bi bi-pencil"></i> Edit product</a>
                 }
             </div>
 
             <form method="post" class="col-12 mt-2" asp-controller="Cart" asp-action="Remove">
                 <input type="hidden" name="productId" value="@Model.Product.Id" />
-                <button type="submit" class="btn btn-danger btn-lg col-12">
+                <button type="submit" class="btn btn-danger col-12">
                     <i class="bi bi-cart-dash"></i> Remove from cart
                 </button>
             </form>
@@ -29,7 +29,7 @@
 
                 <div class="input-group">
                     <input type="number" name="quantity" value="1" class="form-control" aria-label="Quantity" aria-describedby="cartItemQuantity@Model.Product.Id">
-                    <button type="submit" class="btn btn-success btn-lg" id="cartItemQuantity@Model.Product.Id">
+                    <button type="submit" class="btn btn-success" id="cartItemQuantity@Model.Product.Id">
                         <i class="bi bi-cart-plus"></i> Add
                     </button>
                 </div>
